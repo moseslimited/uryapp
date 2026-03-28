@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="{{ favicon | e }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>URY POS</title>
+    <link rel="stylesheet" crossorigin href="{{ pos_css_url }}">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      window.csrf_token = "{{ csrf_token | e }}";
+      if (!window.frappe) window.frappe = {};
+      window.app_name = "{{ app_name | e }}";
+      try {
+        var raw = {{ boot_json | tojson }};
+        frappe.boot = typeof raw === "string" ? JSON.parse(raw) : (raw || {});
+        if (!frappe.boot.csrf_token) window.pos_dev_no_boot = true;
+      } catch (e) {
+        console.error("POS boot failed:", e);
+        frappe.boot = {};
+        window.pos_dev_no_boot = true;
+      }
+    </script>
+    <script type="module" crossorigin src="{{ pos_js_url }}"></script>
+  </body>
+</html>

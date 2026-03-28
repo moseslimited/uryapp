@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "pos-install": "cd pos && yarn install --check-files",
+    "pos-build": "cd pos && yarn build",
+    "kds-install": "cd kds && yarn install --check-files",
+    "kds-build": "cd kds && yarn build",
+    "postinstall": "yarn pos-install && yarn kds-install",
+    "build": "yarn pos-build && (test -d kds && yarn kds-build || true)"
+  },
+  "devDependencies": {
+    "@types/qz-tray": "^2.2.2"
+  }
+}

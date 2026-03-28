@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URY KDS</title>
+    <link rel="icon" href="{{ favicon | e }}" />
+    <link rel="stylesheet" href="/assets/ury/kds/kds.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      window.csrf_token = "{{ csrf_token }}";
+      if (!window.frappe) window.frappe = {};
+      window.app_name = "{{ app_name }}";
+      (function () {
+        var raw = {{ boot_json | tojson }};
+        var boot = typeof raw === "string" ? JSON.parse(raw) : raw || {};
+        if (typeof boot === "string") boot = JSON.parse(boot);
+        frappe.boot = boot;
+      })();
+    </script>
+    <script type="module" src="/assets/ury/kds/kds.js"></script>
+  </body>
+</html>
+

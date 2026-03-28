@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/frappe/images/frappe-favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>URY POS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      window.csrf_token = window.csrf_token || "";
+      if (!window.frappe) window.frappe = {};
+      window.app_name = window.app_name || "ury";
+      try {
+        var _b = typeof __BOOT_JSON__ !== "undefined" ? __BOOT_JSON__ : null;
+        frappe.boot = _b != null ? (typeof _b === "string" ? JSON.parse(_b) : _b) : {};
+        if (!frappe.boot.csrf_token) window.pos_dev_no_boot = true;
+      } catch (e) {
+        console.error("POS boot failed:", e);
+        frappe.boot = {};
+        window.pos_dev_no_boot = true;
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

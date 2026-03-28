@@ -1,0 +1,13 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+ury/docs/current
+node_modules/
+
+ury/public/pos
+ury/public/node_modules
+build
+
+*.lock

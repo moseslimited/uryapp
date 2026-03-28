@@ -1,0 +1,17 @@
+ury.patches.add_customer_restaurant_customer_field
+ury.patches.update_restaurant_guest_field_label
+ury.patches.add_customers_served_field
+ury.patches.add_pos_receipt_compact_format
+ury.patches.add_react_pos_workspace_block
+ury.patches.seed_food_boms
+ury.patches.seed_purchase_docs
+ury.patches.add_stock_entry_issue_reason_field
+ury.patches.add_tip_and_service_charge_fields
+ury.patches.sync_ury_workspace_sidebar_links
+ury.patches.seed_production_units
+ury.patches.add_journal_entry_employee_field
+ury.patches.rebrand_erpnext_frappe
+ury.patches.seed_new_african_village_menu
+ury.patches.add_wastage_expense_account_field
+ury.patches.add_pos_invoice_item_ury_line_kind
+ury.patches.sync_ury_menu_item_modifier_groups_column
