@@ -210,6 +210,8 @@ scheduler_events = {
 
 # Request Events
 # ----------------
+# Restrict /app and /desk to privileged roles; everyone else stays on POS routes.
+before_request = ["ury.ury.hooks.ury_redirect.restrict_desk_for_pos_users"]
 
 # Job Events
 # ----------
