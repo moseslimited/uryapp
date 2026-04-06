@@ -55,12 +55,8 @@ website_route_rules = [
 ]
 # Home Pages
 # ----------
-
-# Logged-in website home resolves to POS (unless Role has its own home_page in DB).
-home_page = "pos"
-
-# application home page (will override Website Settings)
-# home_page = "login"
+# Do not set home_page here — let Website Settings / Frappe defaults handle "/".
+# POS remains at /pos via website_route_rules below.
 
 # website user home page (by Role)
 # role_home_page = {
@@ -214,8 +210,6 @@ scheduler_events = {
 
 # Request Events
 # ----------------
-# Logged-in GET / → /pos (see ury_web.default_home_to_pos)
-before_request = ["ury.ury.hooks.ury_web.default_home_to_pos"]
 
 # Job Events
 # ----------
